@@ -1,9 +1,8 @@
+#get total rewards assigned to user
 import pymongo 
 import os
 
-MONGO_URI = "mongodb+srv://laura:hfWz7wqymKSh5jPb@cluster0.2a86itv.mongodb.net/"
-
-def lambda_handler():
+def lambda_handler(event, context):
     # Load environment variables (AWS Lambda provides these in the environment)
     MONGO_URI = os.getenv('MONGO_URI')
     DB_NAME = 'completecodes'
@@ -62,5 +61,3 @@ def lambda_handler():
     finally:
         # Close the MongoDB client connection
         client.close()
-
-lambda_handler()
