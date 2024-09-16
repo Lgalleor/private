@@ -1,8 +1,10 @@
 #prueba que no se si esta bien
 import pymongo # type: ignore
 import os
-from env import Load_Env
-Load_Env()
+#aqui importamos la url de mi usuario de mongoDB desde el fichero .env
+from env import load_env()
+
+load_env()
 
  # Conexion de MongoDB
 MONGO_URI = os.getenv('MONGO_URI')
