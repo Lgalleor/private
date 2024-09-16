@@ -3,7 +3,6 @@ import pymongo # type: ignore
 import os
 #aqui importamos la url de mi usuario de mongoDB desde el fichero .env
 from env import load_env()
-
 load_env()
 
  # Conexion de MongoDB
@@ -14,11 +13,10 @@ client = pymongo.MongoClient(MONGO_URI)
 db = client[DB_NAME]
 collection_rewards = db['rewards']
 
-print('hola')
 #function to conect mongodb and get the funds list by users and contract
 def lambda_handler():
     
-    print('hola2')
+    #print('hola2') era para comprobar que entraba en la funcion
 
     #query para encontrar solo los que estan block
     query = [{
@@ -53,14 +51,9 @@ def lambda_handler():
             print("Documentos encontrados en la colección:")
         for doc in res:
             print(doc)
-    
+    #si salta esto es porque esta fallando algo
     except Exception as e:
         print(f"Error conectando a la base de datos: {e}")
-    
-    
-    #escribe la lista
-    #for result in res:
-    #   print (result)
 
     finally:     
         #cierro conexion
