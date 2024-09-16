@@ -12,14 +12,16 @@ def lambda_handler(event, context):
     db = client[DB_NAME]
     collection_rewards = db['rewards']
 
-    # Define the aggregation pipeline
+    # Define the aggregation query
     query = [
         {
+            #busca los rewards que tienen el status como locked
             "$match": {
                 "status": "locked"
             }
         },
         {
+            #agrupa por usuario y por contrato y calcula el total de todos los rewards que tenga ese usuario en cada contrato
             "$group": {
                 "_id": {
                     "username": "$username",
