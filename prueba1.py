@@ -2,6 +2,7 @@
 import pymongo # type: ignore
 import os
 #aqui importamos la url de mi usuario de mongoDB desde el fichero .env
+#comprobar si funciona en local
 from env import load_env()
 load_env()
 
